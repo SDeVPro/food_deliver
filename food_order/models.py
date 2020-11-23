@@ -20,7 +20,7 @@ class Client(models.Model):
 class Order(models.Model):
     client_info = models.ForeignKey(Profile, on_delete=models.CASCADE)
     food_name = models.ForeignKey(FoodItems, on_delete=models.CASCADE, blank=False)
-    provider = models.ForeignKey(CooKInfo, on_delete=models.CASCADE, blank=False)
+    provider = models.ForeignKey(CookInfo, on_delete=models.CASCADE, blank=False)
     quantity = models.PositiveSmallIntegerField(blank=False)
     delivery_point = models.ForeignKey(DeliveryPoint, on_delete=models.CASCADE, blank=False)
     area = models.ForeignKey(Area, on_delete=models.CASCADE, blank=False)
