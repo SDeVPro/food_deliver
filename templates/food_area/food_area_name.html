@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Food area</h1>
+<hr>
+{% for rs in area_name %}
+    {{ rs.area_name }}
+    {{ rs.zip_code }}<br>
+    <hr>
+{% endfor %}
+</body>
+</html>

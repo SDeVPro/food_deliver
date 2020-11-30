@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+<title>{% block title %}Add Food Items{% endblock %}</title>
+{% block content %}
+    <div class="main-content">
+        <div class="profileDetails">
+            <div class="card p-3">
+                <h1>Add food items</h1>
+                <form class="mt-3" method="post" action="" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ add_items_info.as_p }}
+                    <button class="btn btn-dark btn-sm mb-3">Send</button>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

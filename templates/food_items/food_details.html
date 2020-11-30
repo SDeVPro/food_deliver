@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+<title>{% block title %}Single Food Detail{% endblock %}</title>
+{% block content %}
+    <div class="main-content">
+        <div class="profileDetails">
+            <div class="card p-3">
+                <h1>
+                    {{ food_details_info.name }}
+                </h1>
+                <div class="row">
+                    <div class="col-xs-12 col-md-12">
+                        <img  class="img-thumbnail" src="{{ food_details_info.food_image.url }}" width="100%" alt="">
+                    </div>
+                    <div class="col-xs-12 col-md-12">
+                        <table>
+                            <tr>
+                                <th>Categories</th>
+                                <td>{{ food_details_info.category }}</td>
+                            </tr>
+                            <tr>
+                                <th>Minimum quantity</th>
+                                <td>{{ food_details_info.minimum_quantity }} QTY</td>
+                            </tr>
+                            <tr>
+                                <th>Price</th>
+                                <td>{{ food_details_info.price }} Price</td>
+                            </tr>
+                            <tr>
+                                <th>Provider</th>
+                                <td>{{ food_details_info.provider }}</td>
+                            </tr>
+                            <tr>
+                                <th>Delivery Point</th>
+                                <td>{{ food_details_info.delivery_point }}</td>
+                            </tr>
+                            <tr>
+                                <th>Status</th>
+                                <td>{{ food_details_info.status }}</td>
+                            </tr>
+                            <tr>
+                                <th>Posted at</th>
+                                <td>{{ food_details_info.posted_at }}</td>
+                            </tr>
+                        </table>
+                        <a class="btn btn-dark btn-sm mt-3 mb-0" href="{% url 'order-form' food_details_info.id food_details_info.provider.id food_details_info.delivery_point.id food_details_info.area.id%}" style="width: 100%">Order</a>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+{% endblock %}
