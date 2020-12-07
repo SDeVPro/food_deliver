@@ -1,0 +1,21 @@
+<div class="px-0 pt-3" style="width: 100%">
+    {% if messages %}
+        <div class="message">
+            <ul class="messages" style="list-style:none;">
+                {% for rs in messages %}
+                    <li {% if rs.tags %} class="{{ rs.tags }}" {% endif %}>
+                        {% if 'html_safe' in rs.tags %}
+                            <div class="alert alert-success mx-0" id="publishPost">
+                                <strong>{{ rs|safe }}</strong>
+                            </div>
+                            {% else %}
+                            <div class="alert alert-mx-0">
+                                <strong>{{ rs }}</strong>
+                            </div>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+</div>

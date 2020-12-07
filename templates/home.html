@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+<title>{% block title %}My Title{% endblock %}</title>
+{% block content %}
+    <div class="main-content">
+        <div class="overlay">
+            <div class="container">
+                <div class="showcase">
+                    <h5>Delivery system created in django</h5>
+                    <h1><a href="{% url 'all-food-items' %}">All food items</a></h1>
+                    <h6><b>Categories</b></h6>
+                    <form class="search input-group mt-4" method="get" action="{% url 'home' %}">
+                        <input type="text" name="q" class="form-control" placeholder="search">
+                        <button type="submit" class="searchButton"><i class="fa fa-search"></i></button>
+
+                    </form>
+
+                </div>
+                <div class="product mt-5">
+                    <div class="product-title">
+                        <h3>Title</h3>
+
+                    </div>
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-lg-8 mt-3">
+                            <div class="left-food-item p-3">
+                                {% for rs in all_food_items %}
+
+                                    <div class="card mb-3 p-2">
+                                        <img class="img-thumbnail" src="{{ rs.food_image.url }}" alt="">
+                                    </div>
+                                    <div class="col-xs-12 col-md-5">
+                                        <h2 class="food-name">{{ rs.name }}</h2>
+                                    <b>{{ rs.status }}</b>
+                                    <p class="food-price">{{ rs.price }}</p>
+                                        <a class="btn btn-success btn-sm" target="_blank" href="{% url 'food_details' rs.id %}">Food detail</a>
+                                        <a class="btn btn-success btn-sm" target="_blank" href="{% url 'order-form' rs.id rs.provider.id rs.delivery_point.id rs.area.id %}">Order</a>
+
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    <div class="col-xs-12 col-md-12 col-lg-4">
+                        <div class="category text-white text-center">
+                            <h3 class="pt-3">Categories</h3>
+                            {% for rs in all_category %}
+                                <ul>
+                                    <li>
+                                        <a href="{% url 'categorywise-items' rs.id %}">{{ rs.name }}</a>
+                                    </li>
+                                </ul>
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                    {% include 'paginator/paginator.html' with page=all_food_items %}
+                    </div>
+                <div class="map">
+                    <iframe src="https://www.google.ru/maps/@41.3761536,69.2977664,11z" frameborder="0" allowfullscreen></iframe>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
