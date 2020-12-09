@@ -1,0 +1,66 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="">
+    <title>Sign in / Sign Up</title>
+</head>
+<body class="bg-dark">
+    <div class="loginBox">
+        <div class="row mb-3">
+            <div class="col">
+                <button id="signin-button">Sign in</button>
+            </div>
+            <div class="col">
+                <button id="signup-button">Sign Up</button>
+            </div>
+
+        </div>
+        <div>
+            <form id="signup-form" method="post" action="{% url 'signup' %}">
+                {% csrf_token %}
+                <div class="form-group mt-4">
+                    <label for="">Firstname</label>
+                    <input name="firstname"  class="form-control" type="text" placeholder="Firstname">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Lastname</label>
+                    <input name="lastname"  class="form-control" type="text" placeholder="Lastname">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Email</label>
+                    <input name="email"  class="form-control" type="text" placeholder="Email">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Username</label>
+                    <input name="username"  class="form-control" type="text" placeholder="Username">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Password</label>
+                    <input name="password"  class="form-control" type="text" placeholder="Password">
+                </div>
+                <div class="form-group mt-4">
+                    <label for="">Repassword</label>
+                    <input name="repassword"  class="form-control" type="text" placeholder="Confirm password">
+                </div>
+                <button class="btn btn-dark" type="submit">Sign Up</button>
+            </form>
+
+            <form id="signin-form" method="post" action="{% url 'signin' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="">Username</label>
+                    <input name="username" class="form-control" type="text" placeholder="username">
+                </div>
+                <div class="form-group">
+                    <label for="">Password</label>
+                    <input name="password" class="form-control" type="text" placeholder="password">
+                </div>
+                <button class="btn btn-dark" type="submit">Sign in</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

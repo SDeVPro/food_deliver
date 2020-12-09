@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block title %}Profile Details{% endblock %}
+{% block content %}
+    <div class="main-content">
+        <div class="profile mb-5">
+            <div class="card p-3">
+                <h1 class="text-center">Profile details</h1>
+                <div class="showcase1">
+                    <div class="preview img wrapper">
+                        {% if profile.profile_image %}
+                            <img src="{{ profile.profile_image.url }}" alt="">
+                        {% endif %}
+                    </div>
+                    <hr>
+                </div>
+                <form>
+                    <table class="text-left">
+                        <tr>
+                           <th>
+                               <label for="">Username</label>
+                           </th>
+                            <td><label for="">{{ profile.user_name }}</label></td>
+                        </tr>
+                        <tr>
+                           <th>
+                               <label for="">Role</label>
+                           </th>
+                            <td><label for="">{{ profile.role }}</label></td>
+                        </tr>
+                        <tr>
+                           <th>
+                               <label for="">Contact Number</label>
+                           </th>
+                            <td><label for="">{{ profile.contact_no }}</label></td>
+                        </tr>
+                        <tr>
+                           <th>
+                               <label for="">Email</label>
+                           </th>
+                            <td><label for="">{{ profile.email }}</label></td>
+                        </tr>
+                        <tr>
+                           <th>
+                               <label for="">Area</label>
+                           </th>
+                            <td><label for="">{{ profile.area }}</label></td>
+                        </tr>
+
+                    </table>
+                    {% if request.user.username == profile.user.username %}
+
+                        <a class="btn btn-dark mt-4" href="{% url 'profile-edit' %}">Edit profile</a>
+                    {% endif %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
