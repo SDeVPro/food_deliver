@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+<title>{% block title %}Order Confirm{% endblock %}</title>
+{% block content %}
+    <div class="main-content">
+        <div class="profileDetails">
+            <div class="card p-3">
+                <div class="alert alert-success text-center">
+                    <strong>Order detail</strong>
+                </div>
+                <form>
+                    <table>
+                     <tr>
+                         <th>
+                             Order detail
+                         </th>
+                         <td>
+                             {{ order_details.id }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Client info
+                         </th>
+                         <td>
+                             {{ order_details.client_info.client_name }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Product name
+                         </th>
+                         <td>
+                             {{ order_details.food_name }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Quantity
+                         </th>
+                         <td>
+                             {{ order_details.quantity }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Product provider
+                         </th>
+                         <td>
+                             {{ order_details.provider.cook_name }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Delivery point
+                         </th>
+                         <td>
+                             {{ order_details.delivery_point }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Area name
+                         </th>
+                         <td>
+                             {{ order_details.area.area_name }}
+                         </td>
+                     </tr>
+                         <tr>
+                         <th>
+                             Price
+                         </th>
+                         <td>
+                             {{ price }}
+                         </td>
+                     </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}

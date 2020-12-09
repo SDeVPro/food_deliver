@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<title>{% block title %}Order Form{% endblock %}</title>
+{% block content %}
+    <div class="main-content">
+        <div class="profileDetails">
+            <div class="card p-3">
+                <h1>Order Form</h1>
+                <form class="orderForm py-4" method="post" action="">
+                    {% csrf_token %}
+                    {{ order_form_info.as_p }}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
